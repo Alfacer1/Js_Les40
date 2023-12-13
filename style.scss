@@ -1,0 +1,49 @@
+#registrationForm{
+    display: block;
+    font-family: fantasy;
+    font-size: 25px;
+    #firstName{
+        max-width: 10vw;
+        margin-left: 80px;
+    }
+    #lastName{
+        max-width: 10vw;
+        margin-left: 15px;
+    }
+    #male{
+        margin-left: 19px;
+    }
+    #city{
+        max-width: 10vw;
+        margin-left: 62px;
+        width: 175px;
+    }
+    #address{
+        width: 8.8vw;
+        resize: none;
+        margin-left: 44px;
+        margin-top: 10px;
+    }
+    #zipCode{
+        width: 8.75vw;
+        margin-left: 48px;
+        margin-top: 10px;
+    }
+    #english, #german, #french{
+        margin-left: 10px;
+    }
+    #email{
+        margin-left: 112px;
+    }
+    #button{
+        background-color: #0ff381;
+        color: #0f0f12;
+        border-radius: 5%;
+        font-size: 20px;
+        padding: 5px 10px;
+        margin: 10px 0px 0px 259px;
+    }
+    #button:hover{
+        background-color: #28c5e1;
+    }
+}

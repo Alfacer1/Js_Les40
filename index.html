@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма реєстрації</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<form id="registrationForm">
+    <label for="firstName">Ім'я:</label>
+    <input type="text" id="firstName" name="firstName" maxlength="20" required><br>
+
+    <label for="lastName">Прізвище:</label>
+    <input type="text" id="lastName" name="lastName" maxlength="20" required><br>
+
+    <label for="dob">Дата народження:</label>
+    <input type="date" id="dob" name="trip-start" value="2000-01-01" min="1900-01-01" max="2006-01-01"/><br>
+
+    <label>Стать:</label>
+    <input type="radio" id="male" name="gender" value="male">Чоловіча
+    <input type="radio" id="female" name="gender" value="female">Жіноча<br>
+
+    <label for="city">Місто:</label>
+    <select id="city" name="city" required>
+        <option value="cherkasy">Черкаси</option>
+        <option value="chernihiv">Чернігів</option>
+        <option value="chernivtsi">Чернівці</option>
+        <option value="dnipro">Дніпро</option>
+        <option value="donetsk">Донецьк</option>
+        <option value="ivano-frankivsk">Івано-Франківськ</option>
+        <option value="kharkiv">Харків</option>
+        <option value="kherson">Херсон</option>
+        <option value="khmelnytskyi">Хмельницький</option>
+        <option value="kiev">Київ</option>
+        <option value="kirovohrad">Кіровоград</option>
+        <option value="luhansk">Луганськ</option>
+        <option value="lviv">Львів</option>
+        <option value="mykolaiv">Миколаїв</option>
+        <option value="odesa">Одеса</option>
+        <option value="poltava">Полтава</option>
+        <option value="rivne">Рівне</option>
+        <option value="sumy">Суми</option>
+        <option value="ternopil">Тернопіль</option>
+        <option value="uzhhorod">Ужгород</option>
+        <option value="vinnytsia">Вінниця</option>
+        <option value="zaporizhzhia">Запоріжжя</option>
+        <option value="zhytomyr">Житомир</option>
+    </select><br>
+
+    <label for="address">Адреса:</label>
+    <textarea id="address" name="address"></textarea><br>
+
+    <label for="zipCode">Індекс:</label>
+    <input type="number" id="zipCode" maxlength="5" name="zipCode"><br>
+
+    <label>Мови, якими володієте:</label>
+    <input type="checkbox" id="english" name="language" value="english">Англійська
+    <input type="checkbox" id="german" name="language" value="german">Німецька
+    <input type="checkbox" id="french" name="language" value="french">Французька
+    <br>
+
+    <label for="phoneNumber">Номер телефону:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+380" maxlength="13" required><br>
+
+    <label for="email">Емейл:</label>
+    <input type="email" id="email" name="email"><br>
+
+    <button id="button" type="button" onclick="displayData()">Зберегти</button>
+</form>
+
+<div id="userData"></div>
+
+<script>
+    function displayData() {
+        let firstName = document.getElementById('firstName').value;
+        let lastName = document.getElementById('lastName').value;
+        let dob = document.getElementById('dob').value;
+        let gender = document.querySelector('input[name="gender"]:checked').value;
+        let city = document.getElementById('city').value;
+        let address = document.getElementById('address').value;
+        let zipCode = document.getElementById('zipCode').value;
+        let languages = [];
+        let languageCheckboxes = document.getElementsByName('language');
+        for (let i = 0; i < languageCheckboxes.length; i++) {
+            if (languageCheckboxes[i].checked) {
+                languages.push(languageCheckboxes[i].value);
+            }
+        }
+        let phoneNumber = document.getElementById('phoneNumber').value;
+        let email = document.getElementById('email').value;
+
+        let userDataDiv = document.getElementById('userData');
+        userDataDiv.innerHTML = "<h2>Ваші дані:</h2>" +
+            "<table>" +
+            "<tr><td>Ім'я:</td><td>" + firstName + "</td></tr>" +
+            "<tr><td>Прізвище:</td><td>" + lastName + "</td></tr>" +
+            "<tr><td>Дата народження:</td><td>" + dob + "</td></tr>" +
+            "<tr><td>Стать:</td><td>" + gender + "</td></tr>" +
+            "<tr><td>Місто:</td><td>" + city + "</td></tr>" +
+            "<tr><td>Адреса:</td><td>" + address + "</td></tr>" +
+            "<tr><td>Індекс:</td><td>" + zipCode + "</td></tr>" +
+            "<tr><td>Мови:</td><td>" + languages.join(', ') + "</td></tr>" +
+            "<tr><td>Номер телефону:</td><td>" + phoneNumber + "</td></tr>" +
+            "<tr><td>Емейл:</td><td>" + email + "</td></tr>" +
+            "</table>";
+    }
+</script>
+</body>
+</html>
